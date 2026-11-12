@@ -1,0 +1,377 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --breakpoint-xs: 480px;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Cormorant Garamond", "Lora", Georgia, serif;
+  --font-editorial: "Playfair Display", "Cormorant Garamond", "Lora", Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-rose: var(--rose);
+  --color-gold: var(--gold);
+  --color-glow: var(--glow);
+
+  --shadow-soft: 0 10px 40px -12px rgba(255, 135, 179, 0.35);
+  --shadow-card: 0 4px 24px -8px rgba(255, 135, 179, 0.25);
+  --shadow-glow: 0 20px 60px -20px rgba(255, 135, 179, 0.5);
+
+  --gradient-primary: linear-gradient(135deg, #ff87b3 0%, #f06a99 50%, #d94d78 100%);
+  --gradient-hero: linear-gradient(135deg, #fff5f8 0%, #ff87b3 45%, #f06a99 80%, #d94d78 100%);
+  --gradient-soft: linear-gradient(180deg, #fff5f8 0%, #ffffff 100%);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Izone Hospital #FF87B3 Brand Color System */
+  --background: #ffffff;
+  --foreground: #14213d;
+
+  --card: #ffffff;
+  --card-foreground: #14213d;
+  --popover: #ffffff;
+  --popover-foreground: #14213d;
+
+  --primary: #ff87b3;
+  --primary-foreground: #14213d;
+  --primary-soft: #fff5f8;
+
+  --secondary: #f06a99;
+  --secondary-foreground: #14213d;
+
+  --muted: #fff5f8;
+  --muted-foreground: #667085;
+
+  --accent: #ff87b3;
+  --accent-foreground: #d94d78;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  --border: #ffd6e3;
+  --input: #ffd6e3;
+  --ring: #ff87b3;
+
+  --rose: #d94d78;
+  --gold: #ffe0eb;
+  --glow: rgba(255, 135, 179, 0.45);
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #14213d;
+  --sidebar-primary: #ff87b3;
+  --sidebar-primary-foreground: #14213d;
+  --sidebar-accent: #fff5f8;
+  --sidebar-accent-foreground: #d94d78;
+  --sidebar-border: #ffd6e3;
+  --sidebar-ring: #ff87b3;
+
+  --chart-1: #ff87b3;
+  --chart-2: #f06a99;
+  --chart-3: #d94d78;
+  --chart-4: #b82d5a;
+  --chart-5: #14213d;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  *::-webkit-scrollbar,
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+  html {
+    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100vw;
+    -webkit-text-size-adjust: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100vw;
+    min-width: 320px;
+    touch-action: manipulation;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  /* ─── Global Cursor & Selection Behavior ─── */
+  /* Default arrow cursor across all layout and typography elements */
+  *,
+  *::before,
+  *::after {
+    cursor: default;
+  }
+
+  /* Prevent insertion caret on static content while preserving clean layout */
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  label,
+  li,
+  dt,
+  dd,
+  td,
+  th {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Interactive clickable elements retain pointer cursor */
+  a,
+  a *,
+  button,
+  button *,
+  [role="button"],
+  [role="button"] *,
+  select,
+  summary,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="file"],
+  input[type="color"] {
+    cursor: pointer !important;
+  }
+
+  /* Show text (I-beam) cursor and text selection ONLY when user hovers over or focuses an input box or textarea */
+  input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="color"]):not([type="range"]):not([type="hidden"]),
+  textarea,
+  [contenteditable="true"],
+  [contenteditable=""] {
+    cursor: text !important;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+  }
+}
+
+/* Ensure global cursor rules have absolute top priority across the entire site */
+html,
+body {
+  cursor: default !important;
+}
+
+*:not(a):not(button):not([role="button"]):not(select):not(input):not(textarea):not([contenteditable="true"]):not(label:has(input)) {
+  cursor: default;
+}
+
+a,
+a *,
+button,
+button *,
+[role="button"],
+[role="button"] *,
+select,
+summary {
+  cursor: pointer !important;
+}
+
+input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="color"]):not([type="range"]):not([type="hidden"]),
+textarea,
+[contenteditable="true"] {
+  cursor: text !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 88rem;
+
+  @media (min-width: 375px) {
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    padding-inline: 1.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-inline: 2rem;
+  }
+
+  @media (min-width: 1280px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility hero-gradient {
+  background: var(--gradient-hero);
+}
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility font-serif {
+  font-family: "Playfair Display", "Cormorant Garamond", "Lora", Georgia, serif;
+}
+
+@utility hero-perspective {
+  perspective: 1200px;
+}
+
+@utility hero-mesh-floor {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 135, 179, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 135, 179, 0.22) 1px, transparent 1px);
+}
+
+/* ─── Smooth Orbital Rotation Animations ─── */
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-counter-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-orbit-spin {
+  animation: orbit-spin 20s linear infinite;
+}
+
+.animate-orbit-counter-spin {
+  animation: orbit-counter-spin 20s linear infinite;
+}
+
+.orbit-system:hover .animate-orbit-spin,
+.orbit-system:hover .animate-orbit-counter-spin {
+  animation-play-state: paused;
+}
+
+/* ─── Accessibility: respect prefers-reduced-motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Global Invisible Scrollbar ─── */
+html,
+body,
+#root {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* ─── Performance: image rendering ─── */
+img {
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Performance: promote animated/hover elements to their own layer ─── */
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* ─── Smooth scrolling — disabled for reduced-motion users ─── */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/about</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/doctors</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/departments</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/fertility-centre</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/facilities</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/gallery</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/testimonials</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/contact</loc><changefreq>weekly</changefreq></url>
+  <url><loc>/appointment</loc><changefreq>weekly</changefreq></url>
+</urlset>
